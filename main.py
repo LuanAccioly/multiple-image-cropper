@@ -52,7 +52,9 @@ def remove_extension(files):
 
 
 if __name__ == "__main__":
-    full_images_path = remove_extension(os.listdir("content/full_images/"))
+    full_images_path = remove_extension(
+        [file for file in os.listdir("content/full_images/") if ".gitkeep" not in file]
+    )
 
     for image_name in full_images_path:
         crop_questions(image_name)
